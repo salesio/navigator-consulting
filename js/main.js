@@ -41,6 +41,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Subtle scroll parallax for large screens. Disabled for reduced motion
+  // and small viewports to keep navigation and scrolling responsive.
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const smallScreenQuery = window.matchMedia('(max-width: 760px)');
+  const parallaxItems = [
+    ...Array.from(document.querySelectorAll('.hero-visual')).map(el => ({ el, speed: 0.045, limit: 28, media: true })),
+    ...Array.from(document.querySelectorAll('.split-media')).map(el => ({ el, speed: 0.032, limit: 20, media: true })),
+    ...Array.from(document.querySelectorAll('.hero-arc')).map(el => ({ el, speed: 0.07, limit: 42, media: false }))
+  ];
+
+  parallaxItems.forEach(item => {
+    item.el.classList.add(item.media ? 'parallax-media' : 'parallax-active');
+  });
+
+  let parallaxFrame = 0;
+  const resetParallax = () => {
+    parallaxItems.forEach(item => item.el.style.setProperty('--parallax-shift', '0px'));
+  };
+  const updateParallax = () => {
+    parallaxFrame = 0;
+    if (motionQuery.matches || smallScreenQuery.matches) {
+      resetParallax();
+      return;
+    }
+
+    const viewportCenter = window.innerHeight / 2;
+    parallaxItems.forEach(item => {
+      const rect = item.el.getBoundingClientRect();
+      if (rect.bottom < -100 || rect.top > window.innerHeight + 100) return;
+      const distance = viewportCenter - (rect.top + rect.height / 2);
+      const shift = Math.max(-item.limit, Math.min(item.limit, distance * item.speed));
+      item.el.style.setProperty('--parallax-shift', `${shift.toFixed(2)}px`);
+    });
+  };
+  const scheduleParallax = () => {
+    if (!parallaxFrame) parallaxFrame = requestAnimationFrame(updateParallax);
+  };
+
+  if (parallaxItems.length) {
+    updateParallax();
+    window.addEventListener('scroll', scheduleParallax, { passive: true });
+    window.addEventListener('resize', scheduleParallax, { passive: true });
+    motionQuery.addEventListener?.('change', scheduleParallax);
+    smallScreenQuery.addEventListener?.('change', scheduleParallax);
+  }
+
   // Reveal-on-scroll
   const revealEls = document.querySelectorAll('[data-reveal]');
   if ('IntersectionObserver' in window && revealEls.length) {
