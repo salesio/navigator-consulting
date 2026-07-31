@@ -25,5 +25,15 @@ python scripts/validate_site.py
 node --check js/main.js
 ```
 
-Deployment to GitHub Pages runs automatically from the `main` branch after validation succeeds.
+## Deployment
+
+The live site is published from the `gh-pages` branch. On Windows, run:
+
+```powershell
+.\scripts\deploy.ps1
+```
+
+The script validates the website, checks JavaScript syntax, pushes `main`, and updates the Pages branch.
+
+An automated GitHub Pages workflow is also included for use when GitHub Actions is enabled on the account.
 
