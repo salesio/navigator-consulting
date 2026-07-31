@@ -22,6 +22,8 @@ class PageParser(HTMLParser):
         self.titles = 0
         self.descriptions = 0
         self.nav_toggles: list[dict[str, str | None]] = []
+        self.social_meta: dict[str, str | None] = {}
+        self.canonical_links = 0
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         data = dict(attrs)
@@ -37,6 +39,10 @@ class PageParser(HTMLParser):
             self.titles += 1
         elif tag == "meta" and data.get("name") == "description":
             self.descriptions += 1
+        elif tag == "meta" and data.get("property"):
+            self.social_meta[data["property"]] = data.get("content")
+        elif tag == "link" and data.get("rel") == "canonical":
+            self.canonical_links += 1
         elif tag == "img":
             self.images.append(data)
         elif tag == "button" and data.get("id") == "navToggle":
@@ -71,6 +77,11 @@ def validate() -> list[str]:
             errors.append(f"{page.name}: expected one title element")
         if parser.descriptions != 1:
             errors.append(f"{page.name}: expected one meta description")
+        if parser.canonical_links != 1:
+            errors.append(f"{page.name}: expected one canonical link")
+        for property_name in ("og:title", "og:description", "og:url", "og:image"):
+            if not parser.social_meta.get(property_name):
+                errors.append(f"{page.name}: missing {property_name}")
         if parser.duplicate_ids:
             errors.append(f"{page.name}: duplicate IDs: {sorted(parser.duplicate_ids)}")
         if len(parser.nav_toggles) != 1:
@@ -103,6 +114,12 @@ def validate() -> list[str]:
     css = (ROOT / "css" / "style.css").read_text(encoding="utf-8")
     if css.count("{") != css.count("}"):
         errors.append("css/style.css: unbalanced braces")
+
+    social_preview = ROOT / "images" / "social-preview.jpg"
+    if not social_preview.exists():
+        errors.append("Social preview image is missing")
+    elif social_preview.stat().st_size > 1_000_000:
+        errors.append("Social preview image must remain below 1 MB")
 
     javascript = (ROOT / "js" / "main.js").read_text(encoding="utf-8")
     if "wa.me/258843785602" not in "\n".join(
