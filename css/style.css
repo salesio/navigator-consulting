@@ -1118,3 +1118,124 @@ section{padding:104px 0;}
     will-change:auto;
   }
 }
+
+/* ============================================================
+   Client review refinements
+   ============================================================ */
+section{padding:88px 0;}
+
+.btn-ghost:not(.on-dark){
+  color:var(--navy-950);
+  background:var(--green-500);
+  border-color:var(--green-500);
+  box-shadow:0 10px 26px -14px rgba(0,240,151,.78);
+}
+.btn-ghost:not(.on-dark):hover{
+  color:var(--navy-950);
+  background:#18f2a0;
+  border-color:#18f2a0;
+  box-shadow:0 16px 34px -14px rgba(0,240,151,.88);
+}
+
+.services-grid{
+  gap:1px;
+  background:rgba(0,240,151,.5);
+  border-color:rgba(0,240,151,.35);
+}
+.service-card{
+  isolation:isolate;
+  min-height:310px;
+  color:#fff;
+  background:
+    radial-gradient(280px 190px at 100% 0,rgba(0,240,151,.12),transparent 72%),
+    linear-gradient(145deg,#070821,#062029);
+  transition:background .4s var(--ease),box-shadow .35s ease;
+}
+.service-card:nth-child(3){
+  background:
+    radial-gradient(300px 220px at 100% 0,rgba(0,240,151,.2),transparent 70%),
+    linear-gradient(145deg,#071326,#04372d);
+}
+.service-card:hover{
+  background:
+    radial-gradient(330px 230px at 100% 0,rgba(0,240,151,.3),transparent 70%),
+    linear-gradient(145deg,#071326,#04483a);
+  box-shadow:inset 0 0 0 1px rgba(0,240,151,.38);
+}
+.service-card .ic{
+  position:absolute;
+  z-index:-1;
+  top:22px;
+  right:26px;
+  width:104px;
+  height:104px;
+  margin:0;
+  color:var(--green-500);
+  background:transparent;
+  opacity:.12;
+  transition:transform .55s var(--ease),opacity .35s ease;
+}
+.service-card .ic svg{width:76px;height:76px;}
+.service-card:hover .ic{opacity:.28;transform:rotate(-7deg) scale(1.12);}
+.service-card h3{
+  position:relative;
+  max-width:78%;
+  color:#fff;
+  font-size:20px;
+}
+.service-card .brand-green{color:var(--green-500);}
+.service-card ul{position:relative;max-width:88%;}
+.service-card ul li{color:rgba(255,255,255,.68);font-size:13.5px;}
+.service-card ul li::before{background:var(--green-500);box-shadow:0 0 10px rgba(0,240,151,.65);}
+
+#estrategia .split-body h2{
+  color:var(--green-600);
+  background:linear-gradient(100deg,#009f69,var(--green-500));
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.site-footer{padding:56px 0 28px;}
+.footer-top{
+  grid-template-columns:1.35fr .72fr .9fr 1.05fr;
+  gap:28px;
+  padding-bottom:38px;
+}
+.footer-brand .brand{margin-bottom:12px;}
+.footer-brand p{margin-top:16px;font-size:13px;line-height:1.6;max-width:260px;}
+.footer-col h5{margin-bottom:14px;font-size:10.5px;}
+.footer-col ul{gap:8px;}
+.footer-col a{font-size:13px;}
+.footer-bottom{padding-top:20px;font-size:12px;}
+.footer-bottom .socials{gap:9px;}
+.footer-bottom .socials a{
+  width:32px;
+  height:32px;
+  border-color:rgba(0,240,151,.22);
+  color:rgba(255,255,255,.72);
+  background:rgba(255,255,255,.025);
+}
+.footer-bottom .socials a svg{width:15px;height:15px;}
+.footer-bottom .socials a:hover{
+  color:var(--navy-950);
+  border-color:var(--green-500);
+  background:var(--green-500);
+  transform:translateY(-2px);
+}
+
+@media (max-width:900px){
+  section{padding:70px 0;}
+  .footer-top{grid-template-columns:1.25fr 1fr;gap:30px 24px;}
+}
+@media (max-width:620px){
+  section{padding:58px 0;}
+  .service-card{min-height:0;padding:30px 22px;}
+  .service-card .ic{width:82px;height:82px;top:18px;right:16px;}
+  .service-card .ic svg{width:60px;height:60px;}
+  .service-card h3{max-width:76%;font-size:18px;}
+  .service-card ul{max-width:100%;}
+  .footer-top{grid-template-columns:1fr;gap:26px;padding-bottom:32px;}
+  .footer-col ul{gap:7px;}
+  .footer-bottom .socials{order:-1;}
+}
