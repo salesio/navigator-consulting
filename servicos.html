@@ -27,28 +27,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
-<style>
-  .svc-section{scroll-margin-top:96px;}
-  .svc-section:nth-of-type(even){background:var(--mist-50);}
-  .svc-list{display:flex;flex-direction:column;gap:16px;margin-top:26px;}
-  .svc-list li{
-    display:flex;gap:14px;align-items:flex-start;
-    font-size:15.5px;color:var(--ink-soft);
-    padding-bottom:16px;border-bottom:1px solid var(--line);
-  }
-  .svc-list li:last-child{border-bottom:none;padding-bottom:0;}
-  .svc-list li .dot{
-    width:22px;height:22px;flex-shrink:0;border-radius:50%;
-    background:var(--mist-100);color:var(--green-600);
-    display:flex;align-items:center;justify-content:center;margin-top:2px;
-  }
-  .svc-list li .dot svg{width:11px;height:11px;}
-  .svc-tag{
-    display:inline-flex;align-items:center;gap:8px;
-    font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;
-    color:var(--green-600);text-transform:uppercase;margin-bottom:14px;
-  }
-</style>
 </head>
 <body>
 
@@ -91,7 +69,7 @@
       <div class="split-media"><img src="images/governance-team.webp" alt="Reunião de governação corporativa" width="1440" height="961" loading="lazy"></div>
       <div class="split-body">
         <span class="svc-tag">01 · Governação Corporativa</span>
-        <h2 style="font-size:clamp(24px,2.8vw,34px);">Estruturas de decisão claras, eficientes e responsáveis.</h2>
+        <h2 class="service-title">Estruturas de decisão claras, eficientes e responsáveis.</h2>
         <p>Ajudamos a desenhar os órgãos, papéis e políticas que sustentam uma governação sólida — da estrutura organizacional à agenda ESG.</p>
         <ul class="svc-list">
           <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>Estruturação de organogramas e áreas funcionais</li>
@@ -111,7 +89,7 @@
       <div class="split-media"><img class="portrait-crop" src="images/financial-crime-expert-cropped.webp" alt="Especialista em prevenção de crimes financeiros" width="704" height="816" loading="lazy"></div>
       <div class="split-body">
         <span class="svc-tag">02 · Crimes Financeiros</span>
-        <h2 style="font-size:clamp(24px,2.8vw,34px);">Protecção contra branqueamento, fraude e corrupção.</h2>
+        <h2 class="service-title">Protecção contra branqueamento, fraude e corrupção.</h2>
         <p>Programas robustos de prevenção e resposta a crimes financeiros, alinhados com os padrões internacionais de AML/CFT.</p>
         <ul class="svc-list">
           <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>Prevenção de branqueamento de capitais e financiamento ao terrorismo</li>
@@ -132,7 +110,7 @@
       <div class="split-media"><img class="portrait-crop" src="images/strategy-advisor-cropped.webp" alt="Consultora de gestão estratégica e financeira" width="652" height="816" loading="lazy"></div>
       <div class="split-body">
         <span class="svc-tag">03 · Gestão Estratégica e Financeira</span>
-        <h2 style="font-size:clamp(24px,2.8vw,34px);">Decisões financeiras fundamentadas para crescer com segurança.</h2>
+        <h2 class="service-title">Decisões financeiras fundamentadas para crescer com segurança.</h2>
         <p>Apoio na definição de estratégia, estrutura de capital e oportunidades de investimento.</p>
         <ul class="svc-list">
           <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>Desenvolvimento de planos de negócios</li>
@@ -152,7 +130,7 @@
       <div class="split-media"><img class="portrait-crop" src="images/compliance-expert-cropped.webp" alt="Especialista de compliance" width="628" height="848" loading="lazy"></div>
       <div class="split-body">
         <span class="svc-tag">04 · Compliance</span>
-        <h2 style="font-size:clamp(24px,2.8vw,34px);">Cultura de conformidade que se vive no dia-a-dia.</h2>
+        <h2 class="service-title">Cultura de conformidade que se vive no dia-a-dia.</h2>
         <p>Programas de compliance práticos — desde a avaliação de riscos até canais de denúncia seguros e eficazes.</p>
         <ul class="svc-list">
           <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>Avaliação e mapeamento de riscos de compliance</li>
@@ -173,7 +151,7 @@
       <div class="split-media"><img class="portrait-crop" src="images/risk-advisor-cropped.webp" alt="Consultor de gestão de risco numa sessão de trabalho" width="825" height="846" loading="lazy"></div>
       <div class="split-body">
         <span class="svc-tag">05 · Gestão de Risco</span>
-        <h2 style="font-size:clamp(24px,2.8vw,34px);">Um framework de risco à medida da sua operação.</h2>
+        <h2 class="service-title">Um framework de risco à medida da sua operação.</h2>
         <p>Metodologias e ferramentas para identificar, medir e mitigar riscos — incluindo continuidade de negócio e risco cibernético.</p>
         <ul class="svc-list">
           <li><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg></span>Framework de gestão de risco</li>
