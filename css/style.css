@@ -1597,3 +1597,39 @@ section{padding:88px 0;}
   .model-diagram .c3{left:calc(50% - 20px);padding-right:18px;}
   .model-center strong{font-size:24px;}
 }
+
+/* Mobile typography review — compact, balanced and aligned. */
+@media (max-width:620px){
+  .home-hero .hero-grid{padding-top:30px;gap:30px;}
+  .home-hero .eyebrow{
+    gap:6px;
+    max-width:100%;
+    white-space:nowrap;
+    font-size:clamp(8.2px,2.5vw,9.5px);
+    line-height:1.5;
+    letter-spacing:.075em;
+  }
+  .home-hero .eyebrow::before{width:10px;flex:0 0 10px;}
+  .home-hero .hero-copy h1{
+    max-width:330px;
+    margin:12px 0 20px;
+    font-size:clamp(28px,8.15vw,35px);
+    line-height:1.09;
+    letter-spacing:-.035em;
+  }
+  .home-hero .hero-copy > p:not(.eyebrow){
+    max-width:330px;
+    font-size:14.5px;
+    line-height:1.62;
+  }
+  .service-card ul li{
+    padding-left:15px;
+    font-size:13px;
+    line-height:1.55;
+  }
+  .service-card ul li::before{
+    top:.64em;
+    width:5px;height:5px;
+  }
+  .svc-list li{gap:12px;font-size:14px;line-height:1.55;}
+}
