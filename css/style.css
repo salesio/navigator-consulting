@@ -1915,6 +1915,8 @@ section{padding:88px 0;}
   z-index:3;
   inset:13px;
   border:1px solid rgba(255,255,255,.92);
+  outline:1px solid rgba(5,4,27,.22);
+  outline-offset:1px;
   border-radius:18px 18px 5px 18px;
   box-shadow:none;
   pointer-events:none;
@@ -1929,7 +1931,7 @@ section{padding:88px 0;}
 .svc-section .split-media img.portrait-crop{
   inset:16px 0 0;
   height:calc(100% - 16px);
-  object-position:center top;
+  object-position:center 10%;
   transform-origin:center top;
 }
 
@@ -1942,30 +1944,30 @@ section{padding:88px 0;}
 .portrait-frame img.portrait-crop{
   inset:16px 0 0;
   height:calc(100% - 16px);
-  object-position:center top;
+  object-position:center 8%;
   transform-origin:center top;
 }
 
 .split-media.parallax-media img.portrait-crop,
 .svc-section .split-media.parallax-media img.portrait-crop{
-  transform:translate3d(0,calc(var(--parallax-shift, 0px) + 6px),0) scale(1.04);
+  transform:translate3d(0,calc(var(--parallax-shift, 0px) + 4px),0) scale(1.08);
 }
 
 .split-media.parallax-media:hover img.portrait-crop,
 .svc-section .split-media.parallax-media:hover img.portrait-crop{
-  transform:translate3d(0,calc(var(--parallax-shift, 0px) + 6px),0) scale(1.06);
+  transform:translate3d(0,calc(var(--parallax-shift, 0px) + 4px),0) scale(1.1);
 }
 
 /* Guaranteed headroom for the matching portraits on Home and About. */
 .portrait-frame.parallax-media img.portrait-crop{
   inset:0;
   height:100%;
-  object-position:center top;
-  transform:translate3d(0,calc(var(--parallax-shift, 0px) + 22px),0) scale(1.02);
+  object-position:center 8%;
+  transform:translate3d(0,calc(var(--parallax-shift, 0px) + 8px),0) scale(1.06);
 }
 
 .portrait-frame.parallax-media:hover img.portrait-crop{
-  transform:translate3d(0,calc(var(--parallax-shift, 0px) + 22px),0) scale(1.035);
+  transform:translate3d(0,calc(var(--parallax-shift, 0px) + 8px),0) scale(1.08);
 }
 
 @media (max-width:900px){
