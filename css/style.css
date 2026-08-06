@@ -1924,8 +1924,25 @@ section{padding:88px 0;}
 
 .split-media img.portrait-crop,
 .svc-section .split-media img.portrait-crop{
+  inset:16px 0 0;
+  height:calc(100% - 16px);
   object-position:center top;
   transform-origin:center top;
+}
+
+.split-media:has(img.portrait-crop),
+.svc-section .split-media:has(img.portrait-crop){
+  background:#fff;
+}
+
+.split-media.parallax-media img.portrait-crop,
+.svc-section .split-media.parallax-media img.portrait-crop{
+  transform:translate3d(0,calc(var(--parallax-shift, 0px) + 6px),0) scale(1.04);
+}
+
+.split-media.parallax-media:hover img.portrait-crop,
+.svc-section .split-media.parallax-media:hover img.portrait-crop{
+  transform:translate3d(0,calc(var(--parallax-shift, 0px) + 6px),0) scale(1.06);
 }
 
 @media (max-width:900px){

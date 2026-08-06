@@ -70,7 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const smallScreenQuery = window.matchMedia('(max-width: 760px)');
   const parallaxItems = [
     ...Array.from(document.querySelectorAll('.hero-visual')).map(el => ({ el, speed: 0.045, limit: 28, media: true })),
-    ...Array.from(document.querySelectorAll('.split-media')).map(el => ({ el, speed: 0.032, limit: 20, media: true })),
+    ...Array.from(document.querySelectorAll('.split-media')).map(el => ({
+      el,
+      speed: 0.032,
+      limit: el.querySelector('.portrait-crop') ? 8 : 20,
+      media: true
+    })),
     ...Array.from(document.querySelectorAll('.hero-arc')).map(el => ({ el, speed: 0.07, limit: 42, media: false }))
   ];
 
