@@ -1913,10 +1913,12 @@ section{padding:88px 0;}
   content:"";
   position:absolute;
   z-index:3;
-  inset:12px;
-  border:2px solid rgba(255,255,255,.94);
+  inset:13px;
+  border:3px solid #fff;
   border-radius:18px 18px 5px 18px;
-  box-shadow:0 0 0 1px rgba(5,4,27,.06);
+  box-shadow:
+    0 0 0 1px rgba(5,4,27,.16),
+    0 5px 16px rgba(5,4,27,.12);
   pointer-events:none;
 }
 

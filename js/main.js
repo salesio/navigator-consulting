@@ -41,6 +41,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Keep each desktop photograph exactly as tall as its complete text column,
+  // including the final action button when the section has one.
+  const splitPairs = Array.from(document.querySelectorAll('.split')).map(split => ({
+    media: split.querySelector('.split-media'),
+    body: split.querySelector('.split-body')
+  })).filter(pair => pair.media && pair.body);
+  const syncSplitMediaHeights = () => {
+    const desktop = window.innerWidth > 900;
+    splitPairs.forEach(({ media, body }) => {
+      media.style.height = desktop ? `${Math.ceil(body.getBoundingClientRect().height)}px` : '';
+    });
+  };
+  if (splitPairs.length) {
+    syncSplitMediaHeights();
+    window.addEventListener('load', syncSplitMediaHeights, { once: true });
+    window.addEventListener('resize', syncSplitMediaHeights, { passive: true });
+    document.fonts?.ready.then(syncSplitMediaHeights);
+    if ('ResizeObserver' in window) {
+      const splitObserver = new ResizeObserver(syncSplitMediaHeights);
+      splitPairs.forEach(({ body }) => splitObserver.observe(body));
+    }
+  }
+
   // Subtle scroll parallax for large screens. Disabled for reduced motion
   // and small viewports to keep navigation and scrolling responsive.
   const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
