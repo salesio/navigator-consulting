@@ -1953,6 +1953,18 @@ section{padding:88px 0;}
   transform:translate3d(0,calc(var(--parallax-shift, 0px) + 6px),0) scale(1.06);
 }
 
+/* Guaranteed headroom for the matching portraits on Home and About. */
+.portrait-frame.parallax-media img.portrait-crop{
+  inset:0;
+  height:100%;
+  object-position:center top;
+  transform:translate3d(0,calc(var(--parallax-shift, 0px) + 22px),0) scale(1.02);
+}
+
+.portrait-frame.parallax-media:hover img.portrait-crop{
+  transform:translate3d(0,calc(var(--parallax-shift, 0px) + 22px),0) scale(1.035);
+}
+
 @media (max-width:900px){
   .split-media,
   .svc-section .split-media{
