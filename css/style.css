@@ -1854,3 +1854,40 @@ section{padding:88px 0;}
   .practice-section .service-card h3{min-height:0;font-size:16px;}
   .practice-section .service-card ul li{font-size:11.5px;}
 }
+
+/* Square media system — consistent size without cropping faces. */
+.split-media,
+.svc-section .split-media{
+  position:relative;
+  width:100%;
+  max-width:440px;
+  max-height:none;
+  aspect-ratio:1/1;
+  justify-self:center;
+  align-self:center;
+}
+.split-media img,
+.split-media img.portrait-crop,
+.svc-section .split-media img,
+.svc-section .split-media img.portrait-crop{
+  position:absolute;
+  inset:0;
+  width:100%;height:100%;
+  max-width:none;
+  aspect-ratio:auto;
+  object-fit:cover;
+}
+.split-media img:not(.portrait-crop),
+.svc-section .split-media img:not(.portrait-crop){object-position:center center;}
+.split-media img.portrait-crop,
+.svc-section .split-media img.portrait-crop{object-position:center top;}
+
+@media (max-width:620px){
+  .split-media,
+  .svc-section .split-media{
+    width:min(100%,320px);
+    max-width:320px;
+    max-height:none;
+    aspect-ratio:1/1;
+  }
+}
