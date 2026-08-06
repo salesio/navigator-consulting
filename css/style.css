@@ -1767,3 +1767,90 @@ section{padding:88px 0;}
   .home-hero .hero-actions{width:100%;}
   .home-about{padding-top:72px;padding-bottom:72px;}
 }
+
+/* ============================================================
+   Compact content pass — client review
+   ============================================================ */
+.section-head h2{font-size:clamp(25px,2.7vw,35px);}
+.section-title{font-size:clamp(24px,2.55vw,34px);}
+.service-title{font-size:clamp(23px,2.35vw,31px);}
+.page-hero h1{font-size:clamp(34px,4.25vw,50px);}
+.home-hero .hero-copy h1{font-size:clamp(36px,4.2vw,52px);}
+
+.split-media{
+  width:100%;
+  aspect-ratio:4/3;
+  max-height:420px;
+}
+.split-media img,
+.split-media img.portrait-crop{
+  width:100%;height:100%;
+  aspect-ratio:auto;
+  object-fit:cover;
+  object-position:center 22%;
+}
+
+.practice-section{padding:46px 0;}
+.practice-section .section-head{margin-bottom:28px;}
+.practice-section .service-card{
+  min-height:205px;
+  padding:24px 26px 22px;
+}
+.practice-section .service-card .ic{
+  top:14px;right:18px;
+  width:72px;height:72px;
+}
+.practice-section .service-card .ic svg{width:50px;height:50px;}
+.practice-section .service-card h3{
+  min-height:36px;
+  margin-bottom:9px;
+  font-size:17px;
+  line-height:1.08;
+}
+.practice-section .service-card ul{gap:5px;}
+.practice-section .service-card ul li{
+  padding-left:14px;
+  font-size:12px;
+  line-height:1.34;
+}
+.practice-section .service-card ul li::before{top:.58em;width:5px;height:5px;}
+.practice-section .service-card::before{right:20px;bottom:13px;font-size:34px;}
+.practice-section .section-actions{margin-top:24px;}
+.practice-section .btn{padding:12px 22px;font-size:14px;}
+
+@media (max-width:900px){
+  .page-hero h1{font-size:clamp(31px,6vw,42px);}
+  .split-media{max-height:360px;}
+}
+
+@media (max-width:620px){
+  .page-hero h1{font-size:clamp(29px,8.5vw,37px);}
+  .section-head h2{font-size:clamp(24px,7.5vw,31px);}
+  .section-title{font-size:clamp(23px,7vw,29px);}
+  .service-title{font-size:clamp(22px,6.8vw,28px);}
+  .home-hero .hero-copy h1{font-size:clamp(28px,8.25vw,33px);}
+  .split-media,
+  .svc-section .split-media{
+    aspect-ratio:16/10;
+    max-height:255px;
+  }
+  .split-media img,
+  .split-media img.portrait-crop,
+  .svc-section .split-media img,
+  .svc-section .split-media img.portrait-crop{
+    height:100%;
+    aspect-ratio:auto;
+    object-position:center 20%;
+  }
+  .practice-section{padding:40px 0;}
+  .practice-section .section-head{margin-bottom:24px;}
+  .practice-section .service-card,
+  .practice-section .service-card:nth-child(4),
+  .practice-section .service-card:nth-child(5),
+  .practice-section .service-card:last-child{
+    min-height:0;
+    padding:22px 20px 20px;
+  }
+  .practice-section .service-card h3{min-height:0;font-size:16px;}
+  .practice-section .service-card ul li{font-size:11.5px;}
+}
