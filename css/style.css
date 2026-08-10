@@ -2054,4 +2054,9 @@ section{padding:88px 0;}
   .value-card h3{font-size:16px;}
   .value-card p,
   .value-card .tags{margin-top:12px;}
+  .section-mist .section-head h2{
+    font-size:clamp(22px,6vw,26px);
+    line-height:1.08;
+    letter-spacing:-.025em;
+  }
 }
