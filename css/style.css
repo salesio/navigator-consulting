@@ -1981,3 +1981,77 @@ section{padding:88px 0;}
     align-self:center;
   }
 }
+
+/* Client review: compact mobile typography and aligned card headings. */
+.value-card{
+  display:grid;
+  grid-template-columns:44px minmax(0,1fr);
+  column-gap:14px;
+  align-items:center;
+}
+.value-card .ic{
+  grid-column:1;
+  margin-bottom:0;
+}
+.value-card h3{
+  grid-column:2;
+  margin-bottom:0;
+}
+.value-card p,
+.value-card .tags{
+  grid-column:1/-1;
+  margin-top:14px;
+}
+
+@media (max-width:760px){
+  .section-navy .step{
+    display:grid;
+    grid-template-columns:26px minmax(0,1fr);
+    grid-template-rows:auto auto;
+    column-gap:6px;
+    align-items:center;
+    min-height:108px;
+    padding:13px 10px 12px;
+  }
+  .section-navy .step .n{
+    position:static;
+    grid-column:1;
+    grid-row:1;
+    width:26px;
+    height:26px;
+    font-size:8.5px;
+    box-shadow:0 0 0 4px rgba(0,232,143,.055);
+  }
+  .section-navy .step h4{
+    grid-column:2;
+    grid-row:1;
+    margin:0;
+    font-size:clamp(9.5px,3vw,11px);
+    line-height:1.15;
+  }
+  .section-navy .step p{
+    grid-column:2;
+    grid-row:2;
+    align-self:start;
+    margin-top:6px;
+    font-size:10px;
+    line-height:1.35;
+  }
+}
+
+@media (max-width:620px){
+  .page-hero h1{
+    font-size:clamp(26px,7.6vw,32px);
+    line-height:1.03;
+  }
+  .page-hero p{font-size:14px;line-height:1.5;}
+  .value-card{
+    grid-template-columns:38px minmax(0,1fr);
+    column-gap:12px;
+    padding:22px 20px;
+  }
+  .value-card .ic{width:38px;height:38px;border-radius:10px;}
+  .value-card h3{font-size:16px;}
+  .value-card p,
+  .value-card .tags{margin-top:12px;}
+}
