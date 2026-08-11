@@ -2060,3 +2060,16 @@ section{padding:88px 0;}
     letter-spacing:-.025em;
   }
 }
+
+/* Softer Home headline scale following the latest client review. */
+.home-hero .hero-copy h1{
+  font-size:clamp(32px,3.7vw,46px);
+  line-height:1.04;
+}
+
+@media (max-width:620px){
+  .home-hero .hero-copy h1{
+    font-size:clamp(26px,7.4vw,30px);
+    line-height:1.04;
+  }
+}
