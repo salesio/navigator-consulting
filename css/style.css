@@ -2164,7 +2164,7 @@ section{padding:88px 0;}
   .hero-expertise__icon svg{width:24px;height:24px;}
 }
 
-/* Hero composition: content left, portrait unobstructed on the right. */
+/* Desktop keeps the approved side-by-side composition. */
 @media (min-width:901px){
   .home-hero .hero-grid{
     place-items:center start;
@@ -2190,46 +2190,55 @@ section{padding:88px 0;}
     width:min(100%,720px);
     margin-left:0;
     margin-right:0;
+    border-color:rgba(255,255,255,.09);
+    background:rgba(2,7,25,.32);
+    backdrop-filter:blur(7px);
   }
-}
-
-.hero-expertise{
-  border-color:rgba(255,255,255,.09);
-  background:rgba(2,7,25,.32);
-  backdrop-filter:blur(7px);
 }
 
 @media (max-width:900px){
+  .home-hero .wrap{padding-left:0;padding-right:0;}
   .home-hero .hero-grid{
-    min-height:690px;
-    padding:245px 0 48px;
+    min-height:760px;
+    padding:0 20px 44px;
     align-items:end;
   }
   .home-hero .hero-copy{
+    position:static;
     width:100%;
     max-width:620px;
   }
   .home-hero .home-hero-media img{
     object-position:65% top;
+    transform:translate3d(0,82px,0) scale(1.035);
   }
   .home-hero .home-hero-media::after{
-    background:linear-gradient(180deg,rgba(5,5,33,.2) 0%,rgba(5,5,33,.38) 30%,rgba(5,5,33,.9) 62%,rgba(5,5,33,.96) 100%);
+    background:linear-gradient(180deg,var(--navy-950) 0 82px,rgba(5,5,33,.1) 82px,rgba(5,5,33,.3) 40%,rgba(5,5,33,.9) 66%,rgba(5,5,33,.97) 100%);
   }
   .hero-expertise{
-    background:rgba(2,7,25,.26);
-    backdrop-filter:blur(5px);
+    position:absolute;
+    z-index:5;
+    top:0;
+    left:0;
+    width:100%;
+    max-width:none;
+    height:82px;
+    margin:0;
+    padding:7px 14px;
+    border:0;
+    border-radius:0;
+    background:rgba(2,7,25,.78);
+    backdrop-filter:blur(10px);
   }
 }
 
 @media (max-width:620px){
   .home-hero .hero-grid{
-    min-height:720px;
-    padding:250px 0 42px;
+    min-height:760px;
+    padding:0 20px 40px;
   }
   .hero-expertise{
     width:100%;
-    margin-left:0;
-    margin-right:0;
   }
   .home-hero .hero-copy h1,
   .home-hero .hero-copy > p:not(.eyebrow){
