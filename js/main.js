@@ -9,11 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateHeader, { passive: true });
 
   if (toggle && links) {
+    const menuLabel = (isOpen) => window.NC_LANGUAGE?.menuLabel?.(isOpen)
+      || (isOpen ? 'Fechar menu' : 'Abrir menu');
+
     const closeMenu = () => {
       links.classList.remove('open');
       toggle.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', 'Abrir menu');
+      toggle.setAttribute('aria-label', menuLabel(false));
       document.body.classList.remove('menu-open');
       document.body.style.overflow = '';
     };
@@ -22,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpen = links.classList.toggle('open');
       toggle.classList.toggle('is-open', isOpen);
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      toggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+      toggle.setAttribute('aria-label', menuLabel(isOpen));
       document.body.classList.toggle('menu-open', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
@@ -38,6 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     window.addEventListener('resize', () => {
       if (window.innerWidth > 900) closeMenu();
+    });
+    document.addEventListener('navigator:languagechange', () => {
+      toggle.setAttribute('aria-label', menuLabel(links.classList.contains('open')));
     });
   }
 
@@ -139,17 +145,20 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!form.reportValidity()) return;
 
       const data = new FormData(form);
-      const subject = `Pedido de contacto — ${data.get('assunto') || 'Navigator Consulting'}`;
+      const isEnglish = document.documentElement.lang === 'en';
+      const subject = `${isEnglish ? 'Contact request' : 'Pedido de contacto'} — ${data.get('assunto') || 'Navigator Consulting'}`;
       const body = [
-        `Nome: ${data.get('nome') || ''}`,
-        `Empresa: ${data.get('empresa') || ''}`,
+        `${isEnglish ? 'Name' : 'Nome'}: ${data.get('nome') || ''}`,
+        `${isEnglish ? 'Company' : 'Empresa'}: ${data.get('empresa') || ''}`,
         `Email: ${data.get('email') || ''}`,
-        `Telefone: ${data.get('telefone') || ''}`,
+        `${isEnglish ? 'Phone' : 'Telefone'}: ${data.get('telefone') || ''}`,
         '',
         `${data.get('mensagem') || ''}`
       ].join('\n');
       const status = form.querySelector('.form-status');
-      if (status) status.textContent = 'A abrir a sua aplicação de email…';
+      if (status) status.textContent = isEnglish
+        ? 'Opening your email application…'
+        : 'A abrir a sua aplicação de email…';
       window.location.href = `mailto:info@navigatorconsulting.co.mz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
   }

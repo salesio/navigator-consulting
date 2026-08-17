@@ -699,6 +699,51 @@ section{padding:108px 0;}
   }
 }
 
+/* PT/EN language control. */
+.language-switch{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  padding:4px 6px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.72);
+  flex:0 0 auto;
+}
+.language-switch button{
+  min-width:25px;
+  height:25px;
+  padding:0 5px;
+  border:0;
+  border-radius:999px;
+  color:var(--ink-soft);
+  background:transparent;
+  font:700 10px/1 var(--font-mono);
+  cursor:pointer;
+  transition:color .2s ease,background .2s ease;
+}
+.language-switch button[aria-pressed="true"]{
+  color:var(--navy-950);
+  background:var(--green-500);
+}
+.language-switch button:hover,
+.language-switch button:focus-visible{
+  color:var(--navy-950);
+  outline:none;
+}
+.language-switch span{color:var(--line);font-size:11px;}
+
+@media (max-width:900px){
+  .nav{gap:10px;}
+  .language-switch{margin-left:auto;}
+}
+
+@media (max-width:620px){
+  .language-switch{gap:1px;padding:3px 4px;}
+  .language-switch button{min-width:22px;height:23px;padding:0 3px;font-size:9px;}
+}
+
 /* ---------- CTA band ---------- */
 .cta-band{
   position:relative;
