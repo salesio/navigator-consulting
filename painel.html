@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel Editorial | Navigator Consulting</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="images/Logo%20SVG/NC%20Icone.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=20260819-1">
+</head>
+<body class="editor-body">
+<header class="editor-header">
+  <a href="index.html" class="brand"><img src="images/Logo%20SVG/NC%20LG%20HORIZONTAL.svg" alt="Navigator Consulting"></a>
+  <div class="editor-header-actions"><a href="noticias.html">Ver Notícias</a><a href="index.html">Voltar ao site</a></div>
+</header>
+
+<main class="editor-shell">
+  <section class="editor-intro">
+    <div><p class="eyebrow">Painel editorial</p><h1>Criar uma nova notícia</h1><p>Adicione o tema, texto, imagem destacada e uma galeria para visualizar o fluxo editorial.</p></div>
+    <div class="editor-notice"><strong>Protótipo local</strong><p>Os artigos ficam guardados apenas neste navegador. A publicação pública exigirá autenticação e ligação a um CMS seguro.</p></div>
+  </section>
+
+  <div class="editor-layout">
+    <form class="editor-form" data-editor-form>
+      <div class="editor-section-title"><span>01</span><div><h2>Conteúdo principal</h2><p>Informação que aparece nos cards e no artigo.</p></div></div>
+      <div class="editor-fields">
+        <label class="editor-field editor-field-wide"><span>Título</span><input type="text" name="title" required placeholder="Ex.: Como fortalecer a cultura de compliance"></label>
+        <label class="editor-field"><span>Tema</span><select name="category" required><option>Governação Corporativa</option><option>Crimes Financeiros</option><option>Gestão Estratégica</option><option>Compliance</option><option>Gestão de Risco</option><option>ESG</option></select></label>
+        <label class="editor-field"><span>Data</span><input type="date" name="date" required></label>
+        <label class="editor-field"><span>Tempo de leitura</span><input type="number" name="readTime" min="1" max="30" value="5" required></label>
+        <label class="editor-field"><span>Estado</span><select name="status"><option value="draft">Guardar como draft</option><option value="published">Publicar localmente</option></select></label>
+        <label class="editor-field editor-field-wide"><span>Descrição curta</span><textarea name="excerpt" rows="3" maxlength="260" required placeholder="Resumo que será apresentado no card da notícia."></textarea></label>
+        <label class="editor-field editor-field-wide"><span>Conteúdo do artigo</span><textarea name="body" rows="10" required placeholder="Escreva o artigo. Separe os parágrafos com uma linha vazia."></textarea></label>
+      </div>
+
+      <div class="editor-section-title"><span>02</span><div><h2>Imagens</h2><p>Escolha a imagem principal e as fotografias da galeria.</p></div></div>
+      <div class="editor-upload-grid">
+        <label class="editor-upload"><strong>Imagem destacada</strong><span>JPG, PNG ou WEBP</span><input type="file" name="featured" accept="image/*"></label>
+        <label class="editor-upload"><strong>Galeria masonry</strong><span>Até 8 imagens</span><input type="file" name="gallery" accept="image/*" multiple></label>
+      </div>
+      <div class="editor-featured-preview" data-featured-preview></div>
+      <div class="editor-gallery-preview" data-gallery-preview></div>
+
+      <div class="editor-submit-row">
+        <button type="submit" class="btn btn-primary">Guardar artigo <span>↗</span></button>
+        <p data-editor-status aria-live="polite"></p>
+      </div>
+    </form>
+
+    <aside class="editor-sidebar">
+      <div class="editor-sidebar-head"><div><p class="eyebrow">Conteúdo local</p><h2>Artigos criados</h2></div><button type="button" data-export-posts>Exportar JSON</button></div>
+      <div class="editor-posts" data-editor-posts></div>
+      <div class="editor-help"><h3>Próxima etapa</h3><p>Ligar este painel a autenticação, base de dados e armazenamento de imagens para permitir publicação pública e segura.</p></div>
+    </aside>
+  </div>
+</main>
+
+<script src="js/news-admin.js?v=20260819-1"></script>
+</body>
+</html>

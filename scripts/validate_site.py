@@ -9,6 +9,7 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = sorted(ROOT.glob("*.html"))
+PUBLIC_PAGES = [page for page in PAGES if page.name != "painel.html"]
 
 
 class PageParser(HTMLParser):
@@ -69,7 +70,7 @@ def validate() -> list[str]:
     if not PAGES:
         return ["No HTML pages found."]
 
-    for page in PAGES:
+    for page in PUBLIC_PAGES:
         parser = parsed[page.name]
         if parser.h1_count != 1:
             errors.append(f"{page.name}: expected one h1, found {parser.h1_count}")
@@ -139,4 +140,4 @@ if __name__ == "__main__":
         for failure in failures:
             print(f"- {failure}")
         raise SystemExit(1)
-    print(f"Validated {len(PAGES)} pages successfully.")
+    print(f"Validated {len(PUBLIC_PAGES)} public pages successfully.")

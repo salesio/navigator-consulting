@@ -181,7 +181,22 @@
     "Ao enviar, abriremos a sua aplicação de email com a mensagem preparada.": "When you submit, we will open your email application with a prepared message.",
     "Informação de contacto": "Contact information",
     "Prefere falar directamente? Estes são os nossos canais.": "Prefer to speak directly? These are our channels.",
-    "Localização": "Location"
+    "Localização": "Location",
+    "Notícias": "News",
+    "Painel editorial": "Editorial panel",
+    "Fale com a nossa equipa": "Talk to our team",
+    "Perspectivas & atualizações": "Insights & updates",
+    "Conhecimento para decisões mais seguras.": "Knowledge for safer decisions.",
+    "Conteúdos sobre governação, risco, compliance, crimes financeiros, estratégia e sustentabilidade.": "Insights on governance, risk, compliance, financial crime, strategy and sustainability.",
+    "Todas": "All",
+    "Conteúdo demonstrativo": "Demonstration content",
+    "Ainda não existem artigos nesta categoria.": "There are no articles in this category yet.",
+    "Escolha outra área para continuar a explorar.": "Choose another area to continue exploring.",
+    "Tem um tema que gostaria de discutir?": "Is there a topic you would like to discuss?",
+    "Voltar às notícias": "Back to news",
+    "Galeria": "Gallery",
+    "Imagens relacionadas": "Related images",
+    "Conhecimento local, rigor internacional e soluções orientadas para resultados.": "Local knowledge, international rigour and results-focused solutions."
   };
 
   const attributeEnglish = {
@@ -208,7 +223,9 @@
     "Sobre Nós | Navigator Consulting": "About Us | Navigator Consulting",
     "Serviços | Navigator Consulting": "Services | Navigator Consulting",
     "Metodologia | Navigator Consulting": "Methodology | Navigator Consulting",
-    "Contacto | Navigator Consulting": "Contact | Navigator Consulting"
+    "Contacto | Navigator Consulting": "Contact | Navigator Consulting",
+    "Notícias | Navigator Consulting": "News | Navigator Consulting",
+    "Notícia | Navigator Consulting": "Article | Navigator Consulting"
   };
 
   const textNodes = [];
